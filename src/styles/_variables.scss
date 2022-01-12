@@ -1,0 +1,129 @@
+@charset "UTF-8";
+//フォントフェイス用のファンクションを作りたい
+//@function font-face($weight,$type){$weighr-min:;$type-yakuhan:;}
+
+//ブレイクポイント・要素の幅はemかvwで指定
+//1400pxくらい→600くらい
+//14px：100em→42em 16px: 88em→38em 18px:78em→ 20px:70em→30em
+//ブレイクポイントをemで指示する場合は、フォントサイズが可変後の値で設定する
+// • スマートフォン：599px [max-width : 599px]
+// • タブレット：1024px [max-width : 1024px]
+// • PC：設定なし（実質1025px以上）
+
+//ブレークポイント
+$breakPoint1: 80em;
+$breakPoint2: 38em;
+$breakPoint3: 20em;
+
+$sizeSm: 1em; //標準サイズ
+$denominator: 6;
+//サイズ用のCSS変数
+//サイズユニットを「調和数列」で定義する
+$sizeXxs: round-decimal($sizeSm * ($denominator / 10), 2);
+$sizeXs: round-decimal($sizeSm * ($denominator / 8), 2);
+$sizeS: round-decimal($sizeSm * ($denominator / 7), 2);
+//標準サイズ：size-sm=1em
+$sizeM: round-decimal($sizeSm * ($denominator / 5), 2);
+$sizeSl: round-decimal($sizeSm * ($denominator / 4), 2);
+$sizeL: round-decimal($sizeSm * ($denominator / 3), 2);
+$sizeXl: round-decimal($sizeSm * ($denominator / 2), 2);
+$sizeXxl: round-decimal($sizeSm * ($denominator / 1), 2);
+
+$denominatorSp: 6;
+$sizeXxsSp: round-decimal($sizeSm * ($denominatorSp / 10), 2);
+$sizeXsSp: round-decimal($sizeSm * ($denominatorSp / 8), 2);
+$sizeSSp: round-decimal($sizeSm * ($denominatorSp / 7), 2);
+//標準サイズ：size-sm=1em
+$sizeMSp: round-decimal($sizeSm * ($denominatorSp / 5), 2);
+$sizeSlSp: round-decimal($sizeSm * ($denominatorSp / 4), 2);
+$sizeLSp: round-decimal($sizeSm * ($denominatorSp / 3), 2);
+$sizeXlSp: round-decimal($sizeSm * ($denominatorSp / 2), 2);
+$sizeXxlSp: round-decimal($sizeSm * ($denominatorSp / 2), 2);
+
+:root {
+  //コンテンツの幅
+  --contentWidth: 100vw;
+  --contentWidthInner: 80em;
+
+  //フォントサイズ
+  --fontSize: 14px;
+
+  //サイズ設定：emを単位に相対的に定義する
+  //サイズユニットを「調和数列」で定義する
+  //サイズ用のCSS変数
+  --sizeXxs: #{$sizeXxs};
+  --sizeXs: #{$sizeXs};
+  --sizeS: #{$sizeS};
+  --sizeSm: #{$sizeSm}; //標準サイズ
+  --sizeM: #{$sizeM};
+  --sizeSl: #{$sizeSl};
+  --sizeL: #{$sizeL};
+  --sizeXl: #{$sizeXl};
+  --sizeXxl: #{$sizeXxl};
+
+  //行の高さの設定
+  --lineHeightNone: var(--sizeSm);
+  --lineHeightS: var(--sizeM);
+  --lineHeightM: var(--sizeL);
+  --lineHeightL: var(--sizeXl);
+
+  //フォントウェイトはできれば1種類で2種類まで
+  --weightPrimary: 500;
+  --weightSecondary: 700;
+
+  //色の設定
+  --colorText: #463;
+  --colorBackground: ddd;
+  --colorScrollbar: rgba(160,230,180,0.5);
+  --black: #555;
+  --white: #fff;
+  --offWhite: #fdfdfd;
+  --gray: #bbb;
+  --colorPrimary: #291;
+  --colorSecondary: #aaa;
+  --colorTertiary: #ccc;
+  --colorAccent: #f43;
+
+  //線の設定
+  --borderGray: solid 1px var(--gray);
+  --borderPrimary: solid 1px var(--colorPrimary);
+
+  //イージングの設定
+  --ease: ease("ease-in-out");
+
+  //z-index制御用
+  --zIndexPrimary: 100;
+  --zIndexHeader: 200;
+  --zIndexModal: 300;
+
+  @include breakPoint(2) {
+    --fontSize: 12px;
+
+    --sizeXxs: #{$sizeXxsSp};
+    --sizeXs: #{$sizeXsSp};
+    --sizeS: #{$sizeSSp};
+    --sizeSm: #{$sizeSm};
+    --sizeM: #{$sizeMSp};
+    --sizeSl: #{$sizeSlSp};
+    --sizeL: #{$sizeLSp};
+    --sizeXl: #{$sizeXlSp};
+    --sizeXxl: #{$sizeXxlSp};
+
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorText: #ddd;
+    --colorBackground: #463;
+    --colorScrollbar: rgba(160,230,180,0.5);
+    --black: #fff;
+    --white: #555;
+    --offWhite: #6f6f6f;
+    --gray: #333;
+    --colorPrimary: #fff;
+    --colorSecondary: #aaa;
+    --colorTertiary: #ccc;
+    --colorAccent: #f43;
+  }
+}

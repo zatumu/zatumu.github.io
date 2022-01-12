@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+//フォントの設定
+@mixin font-family($style: "gothic", $header: "") {
+  @if $header== "heading" {
+    @if $style== "gothic" {
+      font-family: "YakuHanJP", "notoSans", "Helvetica Neue", Arial,
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+
+    @if $style== "mincho" {
+    }
+
+    @if $style== "maru-go" {
+      font-family: "YakuHanMP", "kosugimaru", "roudedMplus", "Helvetica Neue",
+        Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+  } @else {
+    @if $style== "gothic" {
+      font-family: "notoSans", "Helvetica Neue", Arial,
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+
+    @if $style== "mincho" {
+    }
+
+    @if $style== "maru-go" {
+      font-family: "kosugimaru", "roudedMplus", "Helvetica Neue", Arial,
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+  }
+}
+
+//ミックスインの定義
+//ブレイクポイント到達後のふるまいを定義するため and (orientation: portrait)（縦位置のみに適用）
+@mixin breakPoint($bp: 1) {
+  @if $bp==1 {
+    @media screen and (max-width: $breakPoint1) {
+      @content;
+    }
+  } @else {
+    @if $bp==2 {
+      @media screen and (max-width: $breakPoint2) {
+        @content;
+      }
+    } @else {
+      @if $bp==3 {
+        @media screen and (max-width: $breakPoint3) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin borderRadius {
+  border-radius: var(--sizeSl);
+  overflow: hidden;
+  z-index: 1; //ios対策
+}
+
+@mixin add-box-shadow {
+  box-shadow: 2px 2px 5px var(--gray), 4px 4px 12px var(--gray);
+}
+
+@mixin transition {
+  transition: 0.3s var(--ease);
+}
+
+@mixin scrollbar {
+  overflow: overlay;
+  &::-webkit-scrollbar {
+    width: 0.5vw;
+    min-width: 4px;
+    max-width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--colorScrollbar);
+    border-radius: var(--sizeXxs);
+    border-right: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+//アニメーションの定義
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
