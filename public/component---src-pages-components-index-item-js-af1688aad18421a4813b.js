@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmyBlog=self.webpackChunkmyBlog||[]).push([[780],{8780:function(e,t,l){l.r(t);var n=l(7294),u=l(5444),c=l(9979);t.default=function(e){return n.createElement("li",null,n.createElement(u.rU,{href:"./post/"+e.slug},n.createElement("figure",null,n.createElement("svg",null,n.createElement("use",{xlinkHref:c.Z+"#"+e.slug}))),e.title))}},9979:function(e,t,l){t.Z=l.p+"static/sprite-c12f482a2c576faa73308be759c5f5f6.svg"}}]);
+//# sourceMappingURL=component---src-pages-components-index-item-js-af1688aad18421a4813b.js.map
