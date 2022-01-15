@@ -53,17 +53,21 @@ const SearchResult = (props) => {
 
   //検索処理
   const [result, setResult] = useState([]);
-  const search = () => {
-    const value = props.value.toLowerCase();
-    const temp = data.filter((e) => {
-      const target = `
+
+  if (typeof toLowerCase !== "undefined") {
+    const search = () => {
+      const value = props.value.toLowerCase();
+      const temp = data.filter((e) => {
+        const target = `
       ${e.title.toLowerCase()}
       ${e.extract.toLowerCase()}
     `;
-      return target.indexOf(value) !== -1;
-    });
-    setResult(temp);
-  };
+        return target.indexOf(value) !== -1;
+      });
+      setResult(temp);
+    };
+  }
+
   useEffect(() => {
     if (props.value !== "") {
       search();
@@ -81,7 +85,11 @@ const SearchResult = (props) => {
             return (
               <li key={e.slug}>
                 <Link to={`/${e.slug}/`}>
-                  <TextHighlighter title={e.title} extract={e.extract} includes={props.value} />
+                  <TextHighlighter
+                    title={e.title}
+                    extract={e.extract}
+                    includes={props.value}
+                  />
                 </Link>
               </li>
             );
