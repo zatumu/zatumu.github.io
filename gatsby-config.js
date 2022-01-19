@@ -7,6 +7,7 @@ module.exports = {
       twitter: `ツイッター`,
     },
   },
+  pathPrefix: "/doc",
   plugins: [
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-sitemap",
