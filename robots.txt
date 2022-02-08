@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.yourdomain.tld/sitemap/sitemap-index.xml
-Host: https://www.yourdomain.tld
+Sitemap: https://zatumu.github.io/sitemap/sitemap-index.xml
+Host: https://zatumu.github.io
