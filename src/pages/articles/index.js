@@ -1,20 +1,24 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
+import SEO from "../../components/SEO";
+import Layout from "../../components/Layout";
+import BlogCard from "../../components/BlogCard";
 
 import * as style from "./index.module.css";
-
-import mainVisual from "../../contents/images/mainVisual.jpg";
 
 const indexPage = ({ data, location }) => {
   return (
     <Layout location={location}>
     <SEO/>
-    <div className="mainVisual">
-      <img src={mainVisual} alt="" className="mainVisual--imaga" />
-    </div>
+      <ul>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <BlogCard
+            title={node.frontmatter.title}
+            slug={node.frontmatter.slug}
+          />
+        ))}
+      </ul>
     </Layout>
   );
 };

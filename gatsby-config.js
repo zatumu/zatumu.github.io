@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `デザインのいどころ`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `わたしのいどころ`,
+    subtitle: `テスト`,
+    siteUrl: `https://zatumu.github.io/`,
     description: `頑張って作っていますよ`,
+    author: `ざつむ`,
     social: {
       twitter: `ツイッター`,
     },
@@ -14,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.yourdomain.tld`,
+        siteUrl: `https://zatumu.github.io/`,
       },
     },
     {
@@ -27,7 +29,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/contents/post`,
+        path: `${__dirname}/contents/articles`,
       },
     },
     {

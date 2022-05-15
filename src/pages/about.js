@@ -1,10 +1,10 @@
 import * as React from "react";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 
-const about = ()=> {
+const about = ({location})=> {
   return (
-    <Layout>
+    <Layout location={location}>
         <h1>このサイトについて</h1>
     </Layout>
   );
