@@ -38,6 +38,8 @@ export default function Template({
               </ul>
             ) : null}
           </aside>
+
+          {/* 以下のメインイメージはコンポーネント化しよう */}
           <figure className={styles.mainImage}>
             {frontmatter.illust ? (
               <svg className={styles.mainImageSvg}>
@@ -49,12 +51,15 @@ export default function Template({
             ) : frontmatter.mainPhoto ? (
               <img src={frontmatter.mainPhoto} alt="" />
             ) : (
-              "なん？"
+              (
+                <div class="noimage">no-image</div>
+              )
             )}
             <figcaption className={styles.mainImageCaption}>
               {frontmatter.extract}
             </figcaption>
           </figure>
+          
         </header>
 
         <div

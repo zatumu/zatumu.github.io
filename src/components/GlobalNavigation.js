@@ -31,17 +31,47 @@ const GlobalNavigation = (props) => {
     });
   });
   //frontmatterのtagsをtagにバラしてtegListTempに全タグのリストををつくる
-
   const tagSet = new Set(tagListTemp);
   //Setを利用して重複を除外
   const tagList = Array.from(tagSet);
   //tagListを全タグの配列とする
 
+  // 多分タグリストを作り語ったんだと思う（がんばれ！）
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("You clicked submit.");
+    let button = document.getElementById("button");
+    if (button.classList.contains("open") == true) {
+      button.classList.remove("open");
+    } else {
+      button.classList.add("open");
+    }
+  }
+
   return (
     <nav>
       <Link href="/articles/">ブログ</Link>
 
-      
+      <form onSubmit={handleSubmit}>
+        <button type="submit" id="button">
+          Submit
+        </button>
+      </form>
+      <div>
+        {
+          tagList.map((tag) =>{
+            return(
+              <div>
+                <Link href={"/tags/" + tag}>
+                {tag}
+                </Link>
+              </div>
+            )
+          })
+        }
+
+      </div>
     </nav>
   );
 };

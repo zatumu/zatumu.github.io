@@ -5,7 +5,7 @@ import * as styles from "./Header.module.css";
 import { menu } from "./_Variables";
 import { useSiteMetadata } from "./_Variables";
 import Search from "./Search";
-import GlobalNavigation from "./GlobalNavihation";
+import GlobalNavigation from "./GlobalNavigation";
 
 
 const Header = (props) => {
