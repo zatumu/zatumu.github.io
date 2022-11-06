@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tags-js",
+    "path": "/tags/哲学/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"frontmatter":{"title":"心の哲学入門／金杉武司著を読む","tags":["読書","哲学","勉強"],"slug":"9784326153923"}}}]}},"pageContext":{"slug":"哲学"}},
+    "staticQueryHashes": ["2679461444","2841359383","3202921338","4157272165"]}

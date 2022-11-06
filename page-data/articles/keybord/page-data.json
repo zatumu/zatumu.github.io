@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-articles-markdown-remark-frontmatter-slug-js",
+    "path": "/articles/keybord/",
+    "result": {"data":{"markdownRemark":{"html":"<h1>MISTELの分割式</h1>\n<p>キーボードの隙間にiPadなどを置きたくて、ずっと欲しかった分割式キーボード。\nその中でも型番はロープロファイルの優れもの。\nブラインドタッチがなんちゃってなため、修行が必要だけれどファーストインプレッションは好感触。\nメカニカルキーボードなので打鍵の質感も上々です。\n難点といえば、有線式であるが故のケーブルの鬱陶しさくらいかな。\nとりあえず使いこなせるまで使い込んでゆきたい。<br>\nケーブルが硬いのが気になる\nDTP系のソフトを使う場合だと、左にもFNキーがほしいかも</p>\n<h1>ロジクールのやつ</h1>","frontmatter":{"posted":"2022-03-19","updated":"2022-03-19","slug":"keybord","title":"キーボード遍歴","extract":"これまで使ってきたキーボードをまとめておく。","tags":["ガジェット"],"mainPhoto":"","illust":false}}},"pageContext":{"id":"714f41f7-7447-5306-b157-ed18cd093227","frontmatter__slug":"keybord","__params":{"frontmatter__slug":"keybord"}}},
+    "staticQueryHashes": ["2679461444","2841359383","3202921338","4157272165"]}

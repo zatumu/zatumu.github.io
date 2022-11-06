@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tags-js",
+    "path": "/tags/住宅/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":3,"edges":[{"node":{"frontmatter":{"title":"岐阜市で粗大ゴミを出したい","tags":["住宅","覚書"],"slug":"oversize-garbage-gifu"}}},{"node":{"frontmatter":{"title":"不動町の一軒家を見に行く","tags":["住宅","覚書"],"slug":"house-tour-1"}}},{"node":{"frontmatter":{"title":"一戸建てかマンションか賃貸か","tags":["住宅","覚書"],"slug":"myhome"}}}]}},"pageContext":{"slug":"住宅"}},
+    "staticQueryHashes": ["2679461444","2841359383","3202921338","4157272165"]}

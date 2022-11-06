@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-articles-markdown-remark-frontmatter-slug-js",
+    "path": "/articles/made-blog/",
+    "result": {"data":{"markdownRemark":{"html":"<h1>タグページ</h1>\n<ul>\n<li>gatsby-node.jsでページを生成する\n<ul>\n<li>graphQLから記事一覧を取得する</li>\n<li>frontmatterに設定したタグを取得する</li>\n<li>取得したタグ一覧から重複を削除する処理をする</li>\n<li>重複のないタグ一覧からそれぞれのタグに対応するページを作成する\n<ul>\n<li>個別タグページ用のテンプレートにタグを渡す\n<ul>\n<li>createPageのcontext</li>\n</ul>\n</li>\n<li>個別タグページ用のテンプレートを作成する\n<ul>\n<li>graphQLに渡すクエリが含む変数の名前は上記のcontextに設定したものと一致させるとうまくいく</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>","frontmatter":{"posted":"2022-11-06","updated":"2022-11-06","slug":"made-blog","title":"ブログ作成でやったこと","extract":"ブログ作成のつまづきポイントと乗り越え方をメモしておきます。","tags":["制作","Gatsby"],"mainPhoto":"","illust":null}}},"pageContext":{"id":"34400c7c-05cb-5d1c-8959-e8621d827e41","frontmatter__slug":"made-blog","__params":{"frontmatter__slug":"made-blog"}}},
+    "staticQueryHashes": ["2679461444","2841359383","3202921338","4157272165"]}
