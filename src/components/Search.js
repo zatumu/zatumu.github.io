@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
+import * as styles from "./Search.module.css";
 // import TextHighlighter from "./Highlighter";
-
 
 const SearchResult = (props) => {
   const tempData = useStaticQuery(graphql`
@@ -18,6 +18,7 @@ const SearchResult = (props) => {
               title
               slug
               extract
+              tags
             }
           }
         }
@@ -26,6 +27,7 @@ const SearchResult = (props) => {
   `);
 
   const [data, setData] = useState([]);
+  
   useEffect(() => {
     const temp = [];
     tempData.allMarkdownRemark.edges.map((e) => {
@@ -33,37 +35,47 @@ const SearchResult = (props) => {
     });
     setData(temp);
   }, []);
+  // eをfrontmatterを連結したデータとする
 
   //表示非表示の切り替え
   const [className, setClassName] = useState("");
+  // 状態によって切り替える変数を宣言する（？）
   useEffect(() => {
     let id;
     if (props.focus && props.value !== "") {
       id = setTimeout(() => {
-        setClassName("active");
+        setClassName("search__active");
       }, 100);
     } else {
       id = setTimeout(() => {
-        setClassName("");
+        setClassName("search");
       }, 100);
     }
     return () => {
       clearTimeout(id);
     };
   }, [props.focus, props.value]);
+  // 渡されたpropsのfocus・valueいずれかに文字列が含まれるか否かでclassを変更する
 
   //検索処理
   const [result, setResult] = useState([]);
+  // 状態によって切り替える変数を宣言する（？）
 
   const search = () => {
     const value = props.value.toLowerCase();
+    // 検索ワードの大文字を小文字に変換する
     const temp = data.filter((e) => {
+
       const target = `
       ${e.title.toLowerCase()}
       ${e.extract.toLowerCase()}
+      ${e.tags.toString().toLowerCase()}
     `;
+
       return target.indexOf(value) !== -1;
+
     });
+
     setResult(temp);
   };
 
@@ -75,23 +87,25 @@ const SearchResult = (props) => {
 
   return (
     <div className={className}>
-      <div className="resultInner">
-        <span className="res">
-          <b>{result.length}</b>件ヒットしました
+      <div className="search--result">
+        <span className="search--response">
+          <b className="search--quantity">{result.length}</b>件ヒットしました
         </span>
-        <ul>
+        <ul className="search--list">
           {result.map((e) => {
             return (
-              <li key={e.slug}>
+              <li className="search--list--child" key={e.slug}>
                 <Link to={`/post/${e.slug}/`}>
                   {/* <TextHighlighter
                     title={e.title}
                     extract={e.extract}
                     includes={props.value}
                   /> */}
-                  <div><span>{e.title}</span><br /><span>{e.extract}</span></div>
-                  
-                  
+                  <div className="search--list--child--inner">
+                    <span className="search--list--title">{e.title}</span>
+                    <br />
+                    <span className="search--list--extract">{e.extract}</span>
+                  </div>
                 </Link>
               </li>
             );

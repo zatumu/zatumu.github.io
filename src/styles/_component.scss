@@ -1,21 +1,5 @@
 @charset "utf-8";
-
-ol.c-orderd-lst {
-  counter-reset: number 0;
-
-  li {
-    &::before {
-      counter-increment: number 1;
-      content: counters(number, "-", decimal-leading-zero) ".";
-      padding-right: 0.5em;
-      color: $primary-color * $jump-smaller;
-    }
-  }
-}
-
-small.c-smaller {
-  font-size: 1em * $jump-smaller * $jump-smaller;
-}
+// これいるかな
 
 .c- {
   &align {

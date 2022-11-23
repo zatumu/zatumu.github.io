@@ -37,7 +37,8 @@ Tags:
 //アイコンフォント
 //@import "icomoon/icomoon";
 
-//関数・変数・色の定義
+//リセット・関数・変数・色の定義
+@import "destyle";
 @import "functions";
 @import "mixin";
 @import "variables";
@@ -92,10 +93,6 @@ h6 {
   padding: 0 var(--sizeXXs);
   background-color: var(--colorSecondary);
 }
-/*==============================================
-◆2：ノーマライズ
-==============================================*/
-@import "foundation";
 
 /*==============================================
 ◆3：レイアウト設定
