@@ -1,1 +1,6 @@
-/*# sourceMappingURL=Search.module.css.map */
+.search {
+  display: none;
+}
+.search__active {
+  display: block;
+}/*# sourceMappingURL=Search.module.css.map */

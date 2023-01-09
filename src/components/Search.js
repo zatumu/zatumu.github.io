@@ -27,7 +27,7 @@ const SearchResult = (props) => {
   `);
 
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     const temp = [];
     tempData.allMarkdownRemark.edges.map((e) => {
@@ -44,7 +44,7 @@ const SearchResult = (props) => {
     let id;
     if (props.focus && props.value !== "") {
       id = setTimeout(() => {
-        setClassName("search__active");
+        setClassName("searchActive");
       }, 100);
     } else {
       id = setTimeout(() => {
@@ -65,7 +65,6 @@ const SearchResult = (props) => {
     const value = props.value.toLowerCase();
     // 検索ワードの大文字を小文字に変換する
     const temp = data.filter((e) => {
-
       const target = `
       ${e.title.toLowerCase()}
       ${e.extract.toLowerCase()}
@@ -73,7 +72,6 @@ const SearchResult = (props) => {
     `;
 
       return target.indexOf(value) !== -1;
-
     });
 
     setResult(temp);
@@ -87,15 +85,17 @@ const SearchResult = (props) => {
 
   return (
     <div className={className}>
-      <div className="search--result">
+      <div className={styles.searchResult}>
         <span className="search--response">
-          <b className="search--quantity">{result.length}</b>件ヒットしました
+          <b className="search--result--quantity">{result.length}</b>件ヒットしました
         </span>
         <ul className="search--list">
           {result.map((e) => {
             return (
               <li className="search--list--child" key={e.slug}>
-                <Link to={`/post/${e.slug}/`}>
+                <Link
+                className="search--list--link"
+                to={`/post/${e.slug}/`}>
                   {/* <TextHighlighter
                     title={e.title}
                     extract={e.extract}
@@ -129,8 +129,9 @@ const Search = (props) => {
     setValue(e.target.value);
   };
   return (
-    <div className={props.className} focus={focus}>
+    <div className="search--area" focus={focus}>
       <input
+        className="search--input"
         type="text"
         onFocus={onFocus}
         onBlur={onBlur}

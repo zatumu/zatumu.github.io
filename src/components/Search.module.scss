@@ -1,8 +1,41 @@
 @charset "utf-8";
 .search{
-
+    display: none;
     &__active{
+        display: block;
+    }
+    &--area{
+
+    }
+    &--input{
+
+    }
+
+    &--result{
+
+        &--quantity{}
         
+    }
+
+    &--list{
+        &--child{
+
+            &--inner{
+
+            }
+        }
+
+        &--link{
+
+        }
+
+        &--title{
+
+        }
+
+        &--extract{
+
+        }
     }
 
 }

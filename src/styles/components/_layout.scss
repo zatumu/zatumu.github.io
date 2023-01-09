@@ -1,0 +1,15 @@
+.layout {
+  &--container {
+    width: var(--contentWidth);
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: var(--sizeSl);
+  }
+
+  &--inner {
+    padding: 0 var(--sizeSl);
+  }
+}

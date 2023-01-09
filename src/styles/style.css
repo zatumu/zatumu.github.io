@@ -1,29 +1,56 @@
 @charset "UTF-8";
-/*!
-Theme Name:
-Theme URI:
-Author:
-Author URI:
-Description:
-Version: 1.0
-License:
-License URI:
-Tags:
+:root {
+  --contentWidth: 100vw;
+  --contentWidthInner: 80em;
+  --fontSize: 14px;
+  --sizeXxs: 0.6em;
+  --sizeXs: 0.75em;
+  --sizeS: 0.86em;
+  --sizeSm: 1em;
+  --sizeM: 1.2em;
+  --sizeSl: 1.5em;
+  --sizeL: 2em;
+  --sizeXl: 3em;
+  --sizeXxl: 6em;
+  --lineHeightNone: var(--sizeSm);
+  --lineHeightS: var(--sizeM);
+  --lineHeightM: var(--sizeL);
+  --lineHeightL: var(--sizeXl);
+  --weightPrimary: 500;
+  --weightSecondary: 700;
+  --colorText: #463;
+  --colorBackground: ddd;
+  --colorScrollbar: rgba(160,230,180,0.5);
+  --black: #555;
+  --white: #fff;
+  --offWhite: #fdfdfd;
+  --gray: #bbb;
+  --colorPrimary: #291;
+  --colorSecondary: #aaa;
+  --colorTertiary: #ccc;
+  --colorAccent: #f43;
+  --borderGray: solid 1px var(--gray);
+  --borderPrimary: solid 1px var(--colorPrimary);
+  --zIndexPrimary: 100;
+  --zIndexHeader: 200;
+  --zIndexModal: 300;
+}
 
-◆1：CSSリセット・フォントの読み込み
-◆2：レイアウト設定
-◆3：オブジェクト
-◆4：外部プラグイン対応
-◆5：標準設定
-◆6：デバッグ
-
-※ IE11非対応
-
-! de-style.css v1.0.5 | MIT License | https://github.com/nicolas-cusan/destyle.css
-*/
-/*==============================================
-◆1：CSSリセット・フォントの読み込み
-==============================================*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorText: #ddd;
+    --colorBackground: #463;
+    --colorScrollbar: rgba(160,230,180,0.5);
+    --black: #fff;
+    --white: #555;
+    --offWhite: #6f6f6f;
+    --gray: #333;
+    --colorPrimary: #fff;
+    --colorSecondary: #aaa;
+    --colorTertiary: #ccc;
+    --colorAccent: #f43;
+  }
+}
 /*! destyle.css v3.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model and set borders */
 /* ============================================ */
@@ -44,9 +71,16 @@ Tags:
  * 3. Remove gray overlay on links for iOS.
  */
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -webkit-tap-highlight-color: transparent; /* 3*/
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  font-size: var(--fontSize);
+  line-height: var(--lineHeightM);
+  text-align: left;
+  color: var(--colorText);
+  background: var(--colorBackground);
+  letter-spacing: 0.025em;
+  font-family: sans-serif;
 }
 
 /* Sections */
@@ -409,147 +443,56 @@ th {
   font-weight: bold;
 }
 
-@-webkit-keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/*!
+Theme Name:
+Theme URI:
+Author:
+Author URI:
+Description:
+Version: 1.0
+License:
+License URI:
+Tags:
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-:root {
-  --contentWidth: 100vw;
-  --contentWidthInner: 80em;
-  --fontSize: 14px;
-  --sizeXxs: 0.6em;
-  --sizeXs: 0.75em;
-  --sizeS: 0.86em;
-  --sizeSm: 1em;
-  --sizeM: 1.2em;
-  --sizeSl: 1.5em;
-  --sizeL: 2em;
-  --sizeXl: 3em;
-  --sizeXxl: 6em;
-  --lineHeightNone: var(--sizeSm);
-  --lineHeightS: var(--sizeM);
-  --lineHeightM: var(--sizeL);
-  --lineHeightL: var(--sizeXl);
-  --weightPrimary: 500;
-  --weightSecondary: 700;
-  --colorText: #463;
-  --colorBackground: ddd;
-  --colorScrollbar: rgba(160,230,180,0.5);
-  --black: #555;
-  --white: #fff;
-  --offWhite: #fdfdfd;
-  --gray: #bbb;
-  --colorPrimary: #291;
-  --colorSecondary: #aaa;
-  --colorTertiary: #ccc;
-  --colorAccent: #f43;
-  --borderGray: solid 1px var(--gray);
-  --borderPrimary: solid 1px var(--colorPrimary);
-  --ease: ease("ease-in-out");
-  --zIndexPrimary: 100;
-  --zIndexHeader: 200;
-  --zIndexModal: 300;
-}
-@media screen and (max-width: 38em) {
-  :root {
-    --fontSize: 12px;
-    --sizeXxs: 0.6em;
-    --sizeXs: 0.75em;
-    --sizeS: 0.86em;
-    --sizeSm: 1em;
-    --sizeM: 1.2em;
-    --sizeSl: 1.5em;
-    --sizeL: 2em;
-    --sizeXl: 3em;
-    --sizeXxl: 3em;
-  }
-}
+◆1：CSSリセット・フォントの読み込み
+◆2：レイアウト設定
+◆3：オブジェクト
+◆4：外部プラグイン対応
+◆5：標準設定
+◆6：デバッグ
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --colorText: #ddd;
-    --colorBackground: #463;
-    --colorScrollbar: rgba(160,230,180,0.5);
-    --black: #fff;
-    --white: #555;
-    --offWhite: #6f6f6f;
-    --gray: #333;
-    --colorPrimary: #fff;
-    --colorSecondary: #aaa;
-    --colorTertiary: #ccc;
-    --colorAccent: #f43;
-  }
-}
-html {
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  font-size: var(--fontSize);
-  line-height: var(--lineHeightM);
-  text-align: left;
-  color: var(--colorText);
-  background: var(--colorBackground);
-  letter-spacing: 0.025em;
-  font-family: sans-serif;
-  overflow: overlay;
-  width: 100vw;
-}
-html::-webkit-scrollbar {
-  width: 0.5vw;
-  min-width: 4px;
-  max-width: 8px;
-}
-html::-webkit-scrollbar-thumb {
-  background: var(--colorScrollbar);
-  border-radius: var(--sizeXxs);
-  border-right: none;
-}
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
+※ IE11非対応
 
-* > *:first-child:not(:last-child) {
-  margin-top: 0;
-}
-* > *:last-child:not(:first-child) {
-  margin-bottom: 0;
-}
-
-.highLight {
-  padding: 0 var(--sizeXXs);
-  background-color: var(--colorSecondary);
-}
-
+! de-style.css v1.0.5 | MIT License | https://github.com/nicolas-cusan/destyle.css
+*/
 /*==============================================
-◆3：レイアウト設定
-==============================================*/
-/*==============================================
-◆4：オブジェクト
+◆1：CSSリセット・フォントの読み込み
 ==============================================*/
 /*==============================================
 ◆5：コンポーネント
 ==============================================*/
+.layout--container {
+  width: var(--contentWidth);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--sizeSl);
+}
+.layout--inner {
+  padding: 0 var(--sizeSl);
+}
+
 /*==============================================
 ◆6：プロジェクト
-==============================================*/
-/*==============================================
-◆7：ユーティリティ
-==============================================*/
-/*==============================================
-◆8：外部プラグイン対応
 ==============================================*/
 /*==============================================
 ◆9：標準設定

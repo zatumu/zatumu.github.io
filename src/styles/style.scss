@@ -24,7 +24,6 @@ Tags:
 
 //ブロック__エレメント--モデファイヤー
 
-
 /*==============================================
 ◆1：CSSリセット・フォントの読み込み
 ==============================================*/
@@ -38,80 +37,14 @@ Tags:
 //@import "icomoon/icomoon";
 
 //リセット・関数・変数・色の定義
-@import "destyle";
-@import "functions";
-@import "mixin";
-@import "variables";
-
-html {
-  // *1
-  -webkit-text-size-adjust: 100%;
-  // *2
-  -webkit-tap-highlight-color: transparent;
-  // *3
-  position: relative;
-  font-size: var(--fontSize);
-  line-height: var(--lineHeightM);
-  text-align: left;
-  color: var(--colorText);
-  background: var(--colorBackground);
-  letter-spacing: 0.025em;
-  font-family: sans-serif;
-  //@include font-family("maru-go", "");
-  @include scrollbar;
-  width: 100vw;
-}
-* > * {
-  &:first-child {
-    &:not(:last-child) {
-      margin-top: 0;
-    }
-  }
-  &:last-child {
-    &:not(:first-child) {
-      margin-bottom: 0;
-    }
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-}
-
-// svg{
-//   fill: var(--colorText)!important;
-// }
-// path{
-//   stroke: var(--colorText)!important;
-// }
-
-.highLight{
-  padding: 0 var(--sizeXXs);
-  background-color: var(--colorSecondary);
-}
-
-/*==============================================
-◆3：レイアウト設定
-==============================================*/
-// @import "layout";
-
-/*==============================================
-◆4：オブジェクト
-==============================================*/
-//モジュール的に取り扱いたい
-// @import "object";
-//        ┗ wp
-//        ┗ formality
+@forward "./global/variables";
+@use "destyle";
 
 /*==============================================
 ◆5：コンポーネント
 ==============================================*/
-//再利用できる最小単位の部品（ハンバーガーメニューなど）
-// @import "component";
+//../componentsに対応するファイルで作成する
+@import "./components/layout";
 
 /*==============================================
 ◆6：プロジェクト
@@ -119,28 +52,13 @@ h6 {
 //プロジェクト単位で再利用できる部品
 // @import "project";
 
-/*==============================================
-◆7：ユーティリティ
-==============================================*/
-//mb-xxなど調整用の部品
-//@import "utility";
-
-/*==============================================
-◆8：外部プラグイン対応
-==============================================*/
-//@import "./extention/cartjs-color-me";
-//@import "./extention/mailformpro";
-//@import "./extention/swiper";
-//@import "./extention/contact-form-7";
 
 /*==============================================
 ◆9：標準設定
 ==============================================*/
-@import "standard/print";
-//@import "standard/print-a4";
+@import "print";
 
 /*==============================================
 ◆10：デバッグ
 ==============================================*/
-//@import "_explanation.scss";
 //@import "_debug.scss";
