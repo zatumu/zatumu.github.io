@@ -35,6 +35,22 @@
   --zIndexHeader: 200;
   --zIndexModal: 300;
 }
+@media screen and (max-width: 38em) {
+  :root {
+    --fontSize: 12px;
+    --sizeXxs: 0.6em;
+    --sizeXs: 0.75em;
+    --sizeS: 0.86em;
+    --sizeSm: 1em;
+    --sizeM: 1.2em;
+    --sizeSl: 1.5em;
+    --sizeL: 2em;
+    --sizeXl: 3em;
+    --sizeXxl: 3em;
+    --contentWidth: 100vw;
+    --contentWidthInner: 90%;
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   :root {

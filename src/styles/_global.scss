@@ -1,7 +1,11 @@
 @use "sass:math";
+@use "sass:map";
 // math.div(100%, 3)
 
-// ファンクションたち
+//==============================================
+//SCSSファンクション
+//==============================================*
+
 // @forwardでファンクションが別ファイルから利用できないのはなぜだろう
 @function round-decimal($number, $digits: 0) {
   @return to-fixed($number, $digits, "round");
@@ -51,76 +55,10 @@
   }
 }
 
-  //イージング
-  @function returnEaseTypeToCubicBezier($type) {
-    $easingValue: "";
-  
-    @if $type == "linear" {
-      $easingValue: "0.250, 0.250, 0.750, 0.750";
-    } @else if $type == "ease" {
-      $easingValue: "0.250, 0.100, 0.250, 1.000";
-    } @else if $type == "ease-in" {
-      $easingValue: "0.420, 0.000, 1.000, 1.000";
-    } @else if $type == "ease-out" {
-      $easingValue: "0.000, 0.000, 0.580, 1.000";
-    } @else if $type == "ease-in-out" {
-      $easingValue: "0.420, 0.000, 0.580, 1.000";
-    } @else if $type == "easeInQuad" {
-      $easingValue: "0.550, 0.085, 0.680, 0.530";
-    } @else if $type == "easeInCubic" {
-      $easingValue: "0.550, 0.055, 0.675, 0.190";
-    } @else if $type == "easeInQuart" {
-      $easingValue: "0.895, 0.030, 0.685, 0.220";
-    } @else if $type == "easeInQuint" {
-      $easingValue: "0.755, 0.050, 0.855, 0.060";
-    } @else if $type == "easeInSine" {
-      $easingValue: "0.470, 0.000, 0.745, 0.715";
-    } @else if $type == "easeInExpo" {
-      $easingValue: "0.950, 0.050, 0.795, 0.035";
-    } @else if $type == "easeInCirc" {
-      $easingValue: "0.600, 0.040, 0.980, 0.335";
-    } @else if $type == "easeInBack" {
-      $easingValue: "0.600, -0.280, 0.735, 0.045";
-    } @else if $type == "easeOutQuad" {
-      $easingValue: "0.250, 0.460, 0.450, 0.940";
-    } @else if $type == "easeOutCubic" {
-      $easingValue: "0.215, 0.610, 0.355, 1.000";
-    } @else if $type == "easeOutQuart" {
-      $easingValue: "0.165, 0.840, 0.440, 1.000";
-    } @else if $type == "easeOutQuint" {
-      $easingValue: "0.230, 1.000, 0.320, 1.000";
-    } @else if $type == "easeOutSine" {
-      $easingValue: "0.390, 0.575, 0.565, 1.000";
-    } @else if $type == "easeOutExpo" {
-      $easingValue: "0.190, 1.000, 0.220, 1.000";
-    } @else if $type == "easeOutCirc" {
-      $easingValue: "0.075, 0.820, 0.165, 1.000";
-    } @else if $type == "easeOutBack" {
-      $easingValue: "0.175, 0.885, 0.320, 1.275";
-    } @else if $type == "easeInOutQuad" {
-      $easingValue: "0.455, 0.030, 0.515, 0.955";
-    } @else if $type == "easeInOutCubic" {
-      $easingValue: "0.645, 0.045, 0.355, 1.000";
-    } @else if $type == "easeInOutQuart" {
-      $easingValue: "0.770, 0.000, 0.175, 1.000";
-    } @else if $type == "easeInOutQuint" {
-      $easingValue: "0.860, 0.000, 0.070, 1.000";
-    } @else if $type == "easeInOutSine" {
-      $easingValue: "0.445, 0.050, 0.550, 0.950";
-    } @else if $type == "easeInOutExpo" {
-      $easingValue: "1.000, 0.000, 0.000, 1.000";
-    } @else if $type == "easeInOutCirc" {
-      $easingValue: "0.785, 0.135, 0.150, 0.860";
-    } @else if $type == "easeInOutBack" {
-      $easingValue: "0.680, -0.550, 0.265, 1.550";
-    }
-    @return unquote($easingValue);
-  }
-  // cubic-bezierの呼び出し
-  @function ease($type) {
-    @return unquote("cubic-bezier(#{returnEaseTypeToCubicBezier($type)})");
-  }
 
+//==============================================
+//SCSS変数
+//==============================================*
 
 //ブレイクポイント・要素の幅はemかvwで指定
 //1400pxくらい→600くらい
@@ -131,9 +69,11 @@
 // • PC：設定なし（実質1025px以上）
 
 //ブレークポイント
-$breakPoint1: 80em;
-$breakPoint2: 38em;
-$breakPoint3: 20em;
+$breakpoint: (
+  S: '38em',
+  M: '20em',
+  L: '80em'
+);
 
 $sizeSm: 1em; //標準サイズ
 $denominator: 6;
@@ -159,6 +99,23 @@ $sizeSlSp: round-decimal($sizeSm * math.div($denominatorSp , 4), 2);
 $sizeLSp: round-decimal($sizeSm * math.div($denominatorSp , 3), 2);
 $sizeXlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
 $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
+
+//==============================================
+//SCSS mixin
+//==============================================*
+
+
+
+@mixin mediaQuery($bp) {
+  @media screen and (max-width:#{map-get($breakpoint, $bp)}) {
+   @content;
+  }
+}
+
+
+//==============================================
+//CSS変数
+//==============================================*
 
 :root {
   //コンテンツの幅
@@ -209,27 +166,30 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
   --borderPrimary: solid 1px var(--colorPrimary);
 
   //イージングの設定（正しく動かない）
-  // --ease: ease("ease-in-out");
+  // --ease: ;
 
   //z-index制御用
   --zIndexPrimary: 100;
   --zIndexHeader: 200;
   --zIndexModal: 300;
 
-  // @include breakPoint(2) {
-  //   --fontSize: 12px;
+  @include mediaQuery(S) {
+    --fontSize: 12px;
 
-  //   --sizeXxs: #{$sizeXxsSp};
-  //   --sizeXs: #{$sizeXsSp};
-  //   --sizeS: #{$sizeSSp};
-  //   --sizeSm: #{$sizeSm};
-  //   --sizeM: #{$sizeMSp};
-  //   --sizeSl: #{$sizeSlSp};
-  //   --sizeL: #{$sizeLSp};
-  //   --sizeXl: #{$sizeXlSp};
-  //   --sizeXxl: #{$sizeXxlSp};
+    --sizeXxs: #{$sizeXxsSp};
+    --sizeXs: #{$sizeXsSp};
+    --sizeS: #{$sizeSSp};
+    --sizeSm: #{$sizeSm};
+    --sizeM: #{$sizeMSp};
+    --sizeSl: #{$sizeSlSp};
+    --sizeL: #{$sizeLSp};
+    --sizeXl: #{$sizeXlSp};
+    --sizeXxl: #{$sizeXxlSp};
+    //コンテンツの幅
+    --contentWidth: 100vw;
+    --contentWidthInner: 90%;
 
-  // }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

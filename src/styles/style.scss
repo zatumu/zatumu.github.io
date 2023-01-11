@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+@use "sass:math";
+@use "sass:map";
+
+
 /*!
 Theme Name:
 Theme URI:
@@ -37,7 +42,7 @@ Tags:
 //@import "icomoon/icomoon";
 
 //リセット・関数・変数・色の定義
-@forward "./global/variables";
+@forward "global";
 @use "destyle";
 
 /*==============================================
