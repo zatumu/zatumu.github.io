@@ -15,9 +15,11 @@ const Layout = (props) => {
 
   return (
     <div className={( "layout--container" ,isHome ? "isHome" : "notHome")}>
+      <div className="layout">
       <Header />
       <main className={"layout--inner"}>{props.children}</main>
       <Footer />
+      </div>
     </div>
   );
 };

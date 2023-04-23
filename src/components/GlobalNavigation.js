@@ -36,7 +36,7 @@ const GlobalNavigation = (props) => {
   const tagList = Array.from(tagSet);
   //tagListを全タグの配列とする
 
-  // 多分タグリストを作り語ったんだと思う（がんばれ！）
+  // 多分タグリストを作りたかったんだと思う（がんばれ！）
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -50,8 +50,8 @@ const GlobalNavigation = (props) => {
   }
 
   return (
-    <nav>
-      <Link href="/articles/">ブログ</Link>
+    <nav className="grobalNavi">
+      <Link className="grobalNavi--child" href="/articles/">ブログ</Link>
 
       <form onSubmit={handleSubmit}>
         <button type="submit" id="button">

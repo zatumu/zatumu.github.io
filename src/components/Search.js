@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
-import * as styles from "./Search.module.css";
+// import * as styles from "./Search.module.css";
 // import TextHighlighter from "./Highlighter";
 
 const SearchResult = (props) => {
@@ -44,11 +44,11 @@ const SearchResult = (props) => {
     let id;
     if (props.focus && props.value !== "") {
       id = setTimeout(() => {
-        setClassName("searchActive");
+        setClassName("__active");
       }, 100);
     } else {
       id = setTimeout(() => {
-        setClassName("search");
+        setClassName("");
       }, 100);
     }
     return () => {
@@ -84,28 +84,27 @@ const SearchResult = (props) => {
   }, [props.value]);
 
   return (
-    <div className={className}>
-      <div className={styles.searchResult}>
+    <div className={"search"+className}>
+      <div className="search--result">
         <span className="search--response">
           <b className="search--result--quantity">{result.length}</b>件ヒットしました
         </span>
-        <ul className="search--list">
+        <ul className={"search--list"+className}>
           {result.map((e) => {
             return (
               <li className="search--list--child" key={e.slug}>
                 <Link
                 className="search--list--link"
-                to={`/post/${e.slug}/`}>
+                to={`/articles/${e.slug}/`}>
                   {/* <TextHighlighter
                     title={e.title}
                     extract={e.extract}
                     includes={props.value}
                   /> */}
-                  <div className="search--list--child--inner">
-                    <span className="search--list--title">{e.title}</span>
-                    <br />
-                    <span className="search--list--extract">{e.extract}</span>
-                  </div>
+                  <dl className="search--list--child--inner">
+                    <dt className="search--list--title">{e.title}</dt>
+                    <dd className="search--list--extract">{e.extract}</dd>
+                  </dl>
                 </Link>
               </li>
             );
@@ -133,6 +132,7 @@ const Search = (props) => {
       <input
         className="search--input"
         type="text"
+        placeholder="Keywords"
         onFocus={onFocus}
         onBlur={onBlur}
         onChange={onChange}

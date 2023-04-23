@@ -1,0 +1,17 @@
+@use "../global" as *;
+
+.header{
+    width: var(--contentWidth);
+    padding: var(--sizeXs);
+    margin: 0 auto;
+    &--inner{
+        max-width: var(--contentWidthInner);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &--identity{
+        margin: 0;
+    }
+}

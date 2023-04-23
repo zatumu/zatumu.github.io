@@ -19,8 +19,9 @@
   --weightPrimary: 500;
   --weightSecondary: 700;
   --colorText: #463;
-  --colorBackground: ddd;
+  --colorBackground: #ddd;
   --colorScrollbar: rgba(160,230,180,0.5);
+  --colorLinePraimary: #CCC;
   --black: #555;
   --white: #fff;
   --offWhite: #fdfdfd;
@@ -459,6 +460,152 @@ th {
   font-weight: bold;
 }
 
+.layout--container {
+  width: var(--contentWidth);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--sizeSl);
+}
+.layout--inner {
+  padding: 0 var(--sizeSl);
+}
+
+.header {
+  width: var(--contentWidth);
+  padding: var(--sizeXs);
+  margin: 0 auto;
+}
+.header--inner {
+  max-width: var(--contentWidthInner);
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header--identity {
+  margin: 0;
+}
+
+.search {
+  display: none;
+}
+.search__active {
+  display: block;
+  position: absolute;
+}
+.search--area {
+  position: relative;
+  width: 20rem;
+}
+.search--input {
+  display: block;
+  height: 1lh;
+  width: 100%;
+  padding: var(--sizeXxs);
+  border: 1px solid var(--colorLinePraimary);
+  background: var(--colorBackground);
+}
+.search--input::-webkit-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+.search--input::-moz-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+.search--input:-ms-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+.search--input::-ms-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+.search--input::placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+.search--input:focus-visible {
+  outline: 2px solid var(--colorLinePraimary);
+}
+.search--result {
+  position: relative;
+}
+.search--response {
+  position: absolute;
+  top: -2lh;
+  width: 20rem;
+  font-size: var(--sizeS);
+  padding: 0 var(--sizeXxs);
+  background: var(--colorText);
+  color: var(--colorBackground);
+}
+.search--list__active {
+  background: var(--colorText);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  color: var(--colorBackground);
+  line-height: var(--lineHeightS);
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.search--list__active::-webkit-scrollbar {
+  display: none;
+}
+.search--list--child {
+  padding: var(--sizeXs) var(--sizeXxs);
+}
+.search--list--title {
+  display: block;
+  margin-bottom: var(--sizeXxs);
+}
+.search--list--extract {
+  font-size: var(--sizeS);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0 auto;
+    page-break-before: always;
+  }
+  html {
+    font-size: 3mm;
+  }
+  body {
+    background-image: none;
+    -webkit-print-color-adjust: exact;
+    padding: 0 2em;
+  }
+  header,
+  .copy-right,
+  .wp-navi--footer {
+    display: none !important;
+  }
+  .header--inner {
+    position: absolute !important;
+  }
+  .flex--double {
+    display: block;
+  }
+}
 /*!
 Theme Name:
 Theme URI:
@@ -487,58 +634,12 @@ Tags:
 /*==============================================
 ◆5：コンポーネント
 ==============================================*/
-.layout--container {
-  width: var(--contentWidth);
-  margin: 0 auto;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: var(--sizeSl);
-}
-.layout--inner {
-  padding: 0 var(--sizeSl);
-}
-
 /*==============================================
 ◆6：プロジェクト
 ==============================================*/
 /*==============================================
 ◆9：標準設定
 ==============================================*/
-@media print {
-  @page {
-    size: A4;
-    margin: 0 auto;
-    page-break-before: always;
-  }
-  html {
-    font-size: 3mm;
-  }
-  body {
-    background-image: none;
-    -webkit-print-color-adjust: exact;
-    padding: 0 2em;
-  }
-  header,
-.copy-right,
-.wp-navi--footer {
-    display: none !important;
-  }
-  .header--inner {
-    position: absolute !important;
-  }
-  .flex--double {
-    display: block;
-  }
-}
 /*==============================================
 ◆10：デバッグ
 ==============================================*//*# sourceMappingURL=style.css.map */

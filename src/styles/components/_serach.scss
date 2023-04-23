@@ -1,0 +1,81 @@
+@use "../global" as *;
+$serchInputHeihgt: 1lh;
+$serchInputWidth: 20rem;
+$serchInputPadding: var(--sizeXxs);
+
+.search {
+  display: none;
+
+  &__active {
+    display: block;
+    position: absolute;
+  }
+  &--area {
+    position: relative;
+    width: $serchInputWidth;
+    // 多分書き直したほうがいい
+  }
+  &--input {
+    display: block;
+    height: $serchInputHeihgt;
+    width: 100%;
+    padding: $serchInputPadding;
+    border: 1px solid var(--colorLinePraimary);
+    background: var(--colorBackground);
+    &::placeholder {
+      color: var(--colorText);
+      opacity: 0.5;
+    }
+    &:focus-visible {
+      outline: 2px solid var(--colorLinePraimary);
+    }
+  }
+
+  &--result {
+    position: relative;
+
+    &--quantity {
+    }
+  }
+  &--response {
+    position: absolute;
+    top: $serchInputHeihgt * -2;
+    // left: $serchInputPadding;
+    width: $serchInputWidth;
+    font-size: var(--sizeS);
+    padding: 0 var(--sizeXxs);
+    background: var(--colorText);
+    color: var(--colorBackground);
+  }
+
+  &--list {
+    &__active {
+      background: var(--colorText);
+      backdrop-filter: blur(12px);
+      color: var(--colorBackground);
+      line-height: var(--lineHeightS);
+      max-height: 80vh;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &--child {
+      padding: var(--sizeXs) $serchInputPadding;
+      &--inner {
+      }
+    }
+
+    &--link {
+    }
+
+    &--title {
+      display: block;
+      margin-bottom: var(--sizeXxs);
+    }
+    &--extract {
+      font-size: var(--sizeS);
+    }
+  }
+}

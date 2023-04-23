@@ -3,4 +3,8 @@
 }
 .search__active {
   display: block;
+}
+.search--input {
+  border: 1px solid var(--colorLinePraimary);
+  background: var(--colorBackground);
 }/*# sourceMappingURL=Search.module.css.map */
