@@ -41,37 +41,41 @@ const GlobalNavigation = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("You clicked submit.");
-    let button = document.getElementById("button");
-    if (button.classList.contains("open") == true) {
-      button.classList.remove("open");
+    let button = document.getElementById("globalNavi--drawer--button");
+    let drawer = document.getElementById("globalNavi--drawer");
+    if (drawer.classList.contains("open") === true) {
+      drawer.classList.remove("open");
     } else {
-      button.classList.add("open");
+      drawer.classList.add("open");
     }
   }
 
   return (
-    <nav className="grobalNavi">
-      <Link className="grobalNavi--child" href="/articles/">ブログ</Link>
+    <nav className="globalNavi">
 
-      <form onSubmit={handleSubmit}>
-        <button type="submit" id="button">
+      <form onSubmit={handleSubmit}  className="globalNavi--drawer--button--container">
+        <button type="submit" id="globalNavi--drawer--button" className="globalNavi--drawer--button">
           Submit
         </button>
       </form>
-      <div>
+
+      <div id="globalNavi--drawer" className="globalNavi--drawer">
+      <Link className="globalNavi--child" href="/articles/">ブログ</Link>
+        <ul className="globalNavi--list">
         {
           tagList.map((tag) =>{
             return(
-              <div>
-                <Link href={"/tags/" + tag}>
+              <li className="globalNavi--list--child">
+                <Link href={"/tags/" + tag}  className="globalNavi--drawer--link">
                 {tag}
                 </Link>
-              </div>
+              </li>
             )
           })
         }
-
+        </ul>
       </div>
+      
     </nav>
   );
 };

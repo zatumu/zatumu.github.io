@@ -1,5 +1,5 @@
 ---
-slug: "about-Bluetooth"
+slug: "about-bluetooth"
 mainPhoto: ""
 illust: false
 posted: "2023-04-14"

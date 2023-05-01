@@ -21,7 +21,7 @@
   --colorText: #463;
   --colorBackground: #ddd;
   --colorScrollbar: rgba(160,230,180,0.5);
-  --colorLinePraimary: #CCC;
+  --colorLinePrimary: #CCC;
   --black: #555;
   --white: #fff;
   --offWhite: #fdfdfd;
@@ -518,7 +518,7 @@ th {
   height: 1lh;
   width: 100%;
   padding: var(--sizeXxs);
-  border: 1px solid var(--colorLinePraimary);
+  border: 1px solid var(--colorLinePrimary);
   background: var(--colorBackground);
 }
 .search--input::-webkit-input-placeholder {
@@ -542,7 +542,7 @@ th {
   opacity: 0.5;
 }
 .search--input:focus-visible {
-  outline: 2px solid var(--colorLinePraimary);
+  outline: 2px solid var(--colorLinePrimary);
 }
 .search--result {
   position: relative;
@@ -580,6 +580,37 @@ th {
   font-size: var(--sizeS);
 }
 
+.globalNavi {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--sizeM);
+}
+.globalNavi--drawer {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 50px;
+  max-height: 100vh;
+  width: 100vw;
+}
+.globalNavi--drawer.open {
+  display: block;
+  z-index: var(--zIndexHeader);
+}
+.globalNavi--drawer--button--container {
+  z-index: var(--zIndexModal);
+}
+.globalNavi--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 @media print {
   @page {
     size: A4;

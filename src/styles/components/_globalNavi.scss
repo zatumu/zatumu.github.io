@@ -1,0 +1,45 @@
+@use "../global" as *;
+// ヘッダーの高さ・アイデンティティの高さを規定するグローバルで
+
+.globalNavi{
+    position: relative;
+    display: flex;
+    gap: var(--sizeM);
+    &--child{
+
+    }
+
+    &--drawer{
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-top: 50px;
+        max-height: 100vh;
+        width: 100vw;
+        &.open{
+            display: block;
+            z-index: var(--zIndexHeader);
+        }
+        &--button{
+            &--container{
+                z-index: var(--zIndexModal);
+
+            }
+        }
+
+        &--child{
+
+        }
+        &--link{
+
+        }
+    }
+
+    &--list{
+        display: flex;
+        gap: 2em;
+        flex-wrap: wrap;
+        &--child{}
+    }
+}

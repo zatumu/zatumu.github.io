@@ -1,7 +1,7 @@
 @use "../global" as *;
-$serchInputHeihgt: 1lh;
-$serchInputWidth: 20rem;
-$serchInputPadding: var(--sizeXxs);
+$searchInputHeight: 1lh;
+$searchInputWidth: 20rem;
+$searchInputPadding: var(--sizeXxs);
 
 .search {
   display: none;
@@ -12,22 +12,22 @@ $serchInputPadding: var(--sizeXxs);
   }
   &--area {
     position: relative;
-    width: $serchInputWidth;
+    width: $searchInputWidth;
     // 多分書き直したほうがいい
   }
   &--input {
     display: block;
-    height: $serchInputHeihgt;
+    height: $searchInputHeight;
     width: 100%;
-    padding: $serchInputPadding;
-    border: 1px solid var(--colorLinePraimary);
+    padding: $searchInputPadding;
+    border: 1px solid var(--colorLinePrimary);
     background: var(--colorBackground);
     &::placeholder {
       color: var(--colorText);
       opacity: 0.5;
     }
     &:focus-visible {
-      outline: 2px solid var(--colorLinePraimary);
+      outline: 2px solid var(--colorLinePrimary);
     }
   }
 
@@ -39,9 +39,9 @@ $serchInputPadding: var(--sizeXxs);
   }
   &--response {
     position: absolute;
-    top: $serchInputHeihgt * -2;
-    // left: $serchInputPadding;
-    width: $serchInputWidth;
+    top: $searchInputHeight * -2;
+    // left: $searchInputPadding;
+    width: $searchInputWidth;
     font-size: var(--sizeS);
     padding: 0 var(--sizeXxs);
     background: var(--colorText);
@@ -62,7 +62,7 @@ $serchInputPadding: var(--sizeXxs);
       }
     }
     &--child {
-      padding: var(--sizeXs) $serchInputPadding;
+      padding: var(--sizeXs) $searchInputPadding;
       &--inner {
       }
     }
