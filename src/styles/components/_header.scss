@@ -1,17 +1,25 @@
 @use "../global" as *;
 
-.header{
-    width: var(--contentWidth);
-    padding: var(--sizeXs);
+.header {
+  position: relative;
+  width: var(--contentWidth);
+  padding: var(--headerPaddingVertical) var(--headerPaddingHorizontal);
+  margin: 0 auto;
+  &--inner {
+    max-width: var(--contentWidthInner);
     margin: 0 auto;
-    &--inner{
-        max-width: var(--contentWidthInner);
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &--identity{
-        margin: 0;
-    }
+    display: flex;
+    // justify-content: space-between;
+    gap: var(--sizeL);
+    align-items: center;
+  }
+  &--identity {
+    display: block;
+    margin: 0;
+    height: var(--identityHeight);
+    display: grid;
+    place-content: center;
+
+    font-size: var(--identityHeight);
+  }
 }

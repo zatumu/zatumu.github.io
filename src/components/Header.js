@@ -8,20 +8,17 @@ import { useSiteMetadata } from "./_Variables";
 import Search from "./Search";
 import GlobalNavigation from "./GlobalNavigation";
 
-
 const Header = (props) => {
   const { title } = useSiteMetadata();
   return (
     <header className="header">
       <div className="header--inner">
         <h1 className="header--identity">
-          <Link to="/">
-            {title}
-          </Link>
+          <Link to="/">{title}</Link>
         </h1>
         <Search />
-        <GlobalNavigation />
       </div>
+      <GlobalNavigation />
     </header>
   );
 };

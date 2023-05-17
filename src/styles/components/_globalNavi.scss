@@ -1,45 +1,99 @@
 @use "../global" as *;
+@use "sass:math";
 // ヘッダーの高さ・アイデンティティの高さを規定するグローバルで
 
-.globalNavi{
-    position: relative;
-    display: flex;
-    gap: var(--sizeM);
-    &--child{
+.globalNavi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: var(--sizeM);
 
+  &--child {
+  }
+
+  &--drawer {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: var(--headerVerticalSize);
+    max-height: 100vh;
+    width: 100vw;
+    &.open {
+      display: block;
+      z-index: var(--zIndexHeader);
     }
+    &--button {
+      $buttonWidth: 4;
+      $buttonHeight: 2;
+      $buttonDiagonal: 4.47213;
+      // 三平方の定理で計算しよう！（なんかいい方法ないのかな）
+      $buttonDiagonalAngle: round-decimal(
+        math.div(asin(math.div($buttonHeight,$buttonWidth)) * 180 ,3.14) ,
+        2
+      );
+      $iconLineWidth: 2px;
 
-    &--drawer{
-        display: none;
+      display: block;
+      position: relative;
+      width: $buttonWidth + em;
+      height: $buttonHeight + em;
+      display: grid;
+      place-content: center;
+      font-size: var(--sizeXxs);
+
+      @mixin buttonDecorationProperty {
+        content: "";
+        display: block;
+        height: $iconLineWidth;
+        width: $buttonWidth + em;
         position: absolute;
+        background-color: var(--colorText);
+      }
+
+      &::before {
+        @include buttonDecorationProperty;
         top: 0;
-        right: 0;
-        padding-top: 50px;
-        max-height: 100vh;
-        width: 100vw;
-        &.open{
-            display: block;
-            z-index: var(--zIndexHeader);
-        }
-        &--button{
-            &--container{
-                z-index: var(--zIndexModal);
+        left: 0;
+      }
+      &::after {
+        @include buttonDecorationProperty;
+        bottom: 0;
+        left: 0;
+      }
 
-            }
+      &.open {
+        &::before {
+          width: $buttonDiagonal + em;
+          transform: rotate($buttonDiagonalAngle + deg);
         }
-
-        &--child{
-
+        &::after {
+          width: $buttonDiagonal + em;
+          transform: rotate(($buttonDiagonalAngle * -1) + deg);
         }
-        &--link{
+      }
 
-        }
+      &--container {
+        position: absolute;
+        top: var(--headerVerticalCenterPosition);
+        right: var(--contentsWidthInnerSide);
+        z-index: var(--zIndexModal);
+      }
     }
 
-    &--list{
-        display: flex;
-        gap: 2em;
-        flex-wrap: wrap;
-        &--child{}
+    &--child {
     }
+    &--link {
+    }
+  }
+
+  &--list {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    &--child {
+    }
+  }
 }

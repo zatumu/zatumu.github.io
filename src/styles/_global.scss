@@ -44,17 +44,16 @@
   }
 
   @if $round== "round" {
-    @return math.div(round($number * $n) , $n);
+    @return math.div(round($number * $n), $n);
   } @else if $round== "ceil" {
-    @return math.div(ceil($number * $n) , $n);
+    @return math.div(ceil($number * $n), $n);
   } @else if $round== "floor" {
-    @return math.div(floor($number * $n) , $n);
+    @return math.div(floor($number * $n), $n);
   } @else {
     @warn '#{ $round } is undefined keyword.';
     @return $number;
   }
 }
-
 
 //==============================================
 //SCSS変数
@@ -70,48 +69,45 @@
 
 //ブレークポイント
 $breakpoint: (
-  S: '38em',
-  M: '20em',
-  L: '80em'
+  S: "38em",
+  M: "20em",
+  L: "80em",
 );
 
 $sizeSm: 1em; //標準サイズ
 $denominator: 6;
 //サイズ用のCSS変数
 //サイズユニットを「調和数列」で定義する
-$sizeXxs: round-decimal($sizeSm * math.div($denominator , 10), 2);
-$sizeXs: round-decimal($sizeSm * math.div($denominator , 8), 2);
-$sizeS: round-decimal($sizeSm * math.div($denominator , 7), 2);
+$sizeXxs: round-decimal($sizeSm * math.div($denominator, 10), 2);
+$sizeXs: round-decimal($sizeSm * math.div($denominator, 8), 2);
+$sizeS: round-decimal($sizeSm * math.div($denominator, 7), 2);
 //標準サイズ：size-sm=1em
-$sizeM: round-decimal($sizeSm * math.div($denominator , 5), 2);
-$sizeSl: round-decimal($sizeSm * math.div($denominator , 4), 2);
-$sizeL: round-decimal($sizeSm * math.div($denominator , 3), 2);
-$sizeXl: round-decimal($sizeSm * math.div($denominator , 2), 2);
-$sizeXxl: round-decimal($sizeSm * math.div($denominator , 1), 2);
+$sizeM: round-decimal($sizeSm * math.div($denominator, 5), 2);
+$sizeSl: round-decimal($sizeSm * math.div($denominator, 4), 2);
+$sizeL: round-decimal($sizeSm * math.div($denominator, 3), 2);
+$sizeXl: round-decimal($sizeSm * math.div($denominator, 2), 2);
+$sizeXxl: round-decimal($sizeSm * math.div($denominator, 1), 2);
 
 $denominatorSp: 6;
-$sizeXxsSp: round-decimal($sizeSm * math.div($denominatorSp , 10), 2);
-$sizeXsSp: round-decimal($sizeSm * math.div($denominatorSp , 8), 2);
-$sizeSSp: round-decimal($sizeSm * math.div($denominatorSp , 7), 2);
+$sizeXxsSp: round-decimal($sizeSm * math.div($denominatorSp, 10), 2);
+$sizeXsSp: round-decimal($sizeSm * math.div($denominatorSp, 8), 2);
+$sizeSSp: round-decimal($sizeSm * math.div($denominatorSp, 7), 2);
 //標準サイズ：size-sm=1em
-$sizeMSp: round-decimal($sizeSm * math.div($denominatorSp , 5), 2);
-$sizeSlSp: round-decimal($sizeSm * math.div($denominatorSp , 4), 2);
-$sizeLSp: round-decimal($sizeSm * math.div($denominatorSp , 3), 2);
-$sizeXlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
-$sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
+$sizeMSp: round-decimal($sizeSm * math.div($denominatorSp, 5), 2);
+$sizeSlSp: round-decimal($sizeSm * math.div($denominatorSp, 4), 2);
+$sizeLSp: round-decimal($sizeSm * math.div($denominatorSp, 3), 2);
+$sizeXlSp: round-decimal($sizeSm * math.div($denominatorSp, 2), 2);
+$sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp, 2), 2);
 
 //==============================================
 //SCSS mixin
 //==============================================*
 
-
-
 @mixin mediaQuery($bp) {
   @media screen and (max-width:#{map-get($breakpoint, $bp)}) {
-   @content;
+    @content;
   }
 }
-
 
 //==============================================
 //CSS変数
@@ -121,6 +117,9 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
   //コンテンツの幅
   --contentWidth: 100vw;
   --contentWidthInner: 80em;
+
+  // コンテンツインナーと画面サイズの差
+  --contentsWidthInnerSide: calc((100vw - var(--contentWidthInner)) / 2);
 
   //フォントサイズ
   --fontSize: 14px;
@@ -151,8 +150,8 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
   //色の設定
   --colorText: #463;
   --colorBackground: #ddd;
-  --colorScrollbar: rgba(160,230,180,0.5);
-  --colorLinePrimary: #CCC;
+  --colorScrollbar: rgba(160, 230, 180, 0.5);
+  --colorLinePrimary: #ccc;
 
   --black: #555;
   --white: #fff;
@@ -175,6 +174,15 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
   --zIndexHeader: 200;
   --zIndexModal: 300;
 
+  // ヘッダー周りで共有する変数
+  --identityHeight: 1lh;
+  --headerPaddingVertical: var(--sizeM);
+  --headerPaddingHorizontal: var(--sizeM);
+  --headerVerticalSize: calc(
+    var(--headerPaddingVertical) * 2 + var(--headerPaddingVertical)
+  );
+  --headerVerticalCenterPosition: calc(var(--headerVerticalSize) / 2);
+
   @include mediaQuery(S) {
     --fontSize: 12px;
 
@@ -190,7 +198,6 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
     //コンテンツの幅
     --contentWidth: 100vw;
     --contentWidthInner: 90%;
-
   }
 }
 
@@ -198,7 +205,7 @@ $sizeXxlSp: round-decimal($sizeSm * math.div($denominatorSp , 2), 2);
   :root {
     --colorText: #ddd;
     --colorBackground: #463;
-    --colorScrollbar: rgba(160,230,180,0.5);
+    --colorScrollbar: rgba(160, 230, 180, 0.5);
     --black: #fff;
     --white: #555;
     --offWhite: #6f6f6f;

@@ -45,8 +45,10 @@ const GlobalNavigation = (props) => {
     let drawer = document.getElementById("globalNavi--drawer");
     if (drawer.classList.contains("open") === true) {
       drawer.classList.remove("open");
+      button.classList.remove("open");
     } else {
       drawer.classList.add("open");
+      button.classList.add("open");
     }
   }
 
@@ -55,7 +57,7 @@ const GlobalNavigation = (props) => {
 
       <form onSubmit={handleSubmit}  className="globalNavi--drawer--button--container">
         <button type="submit" id="globalNavi--drawer--button" className="globalNavi--drawer--button">
-          Submit
+          
         </button>
       </form>
 
