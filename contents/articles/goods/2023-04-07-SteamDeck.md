@@ -43,10 +43,24 @@ extract: "SteamDeck最高！と個人的には思っています"
 >７．SteamライブラリからEpicのゲームを直接起動して動作確認。
 
 # 内部ストレージを増やすべきか
-[もしかして、全員SSD交換するべきかもしれないSteamDeck](https://yoshives.com/steamdeck-ssd-upgrade/)  
+- [もしかして、全員SSD交換するべきかもしれないSteamDeck](https://yoshives.com/steamdeck-ssd-upgrade/)
+- [【画像で解説】Steam DeckでSteam OSを再インストールする方法](https://time-gadget.com/2023/06/05/%E3%80%90%E7%94%BB%E5%83%8F%E3%81%A7%E8%A7%A3%E8%AA%AC%E3%80%91steam-deck%E3%81%A7steam-os%E3%82%92%E5%86%8D%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/)  
+
 大きいゲームをつけたり消したりするとキャッシュが溜まるらしいんんだけど、それが解決できるらしい。  
 あとは読み込みが結構早くなる。  
 やるべきか。
+
+## やりました
+ネジを若干舐めた可能性があるものの、作業は概ね簡単。  
+USBメモリからOSをブートするのはすこしドキドキする。
+上記リンクとその先に紹介されている記事を参考にするといい。
+### 必要なもの
+- 任意のSSD（無論SteamDeckの規格に合うもの）
+- 16GB以上のUSBメモリ
+- USB-CのハブもしくはUSB-Cの変換アダプター  
+  個人的には給電機能がついたハブが安心
+- WindowsPC  
+  ブート用のUSBメモリ作成に必要（Macでも探せばあるかも）
 
 
 # めも
