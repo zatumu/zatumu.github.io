@@ -37,3 +37,6 @@ extract: "複数のパソコンで環境を同期して使っているので、�
   - ヘッダーフッターの設定はワークスペースの設定ファイルにかく
   - 読み込むCSSファイルを設定する
 ここまではいいんだけど、その設定を各PCで共有する方法がわからない。
+
+# そのほか参考
+- [使える変数](https://code.visualstudio.com/docs/editor/variables-reference)
