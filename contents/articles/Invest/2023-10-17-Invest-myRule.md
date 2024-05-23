@@ -1,11 +1,12 @@
 ---
-slug: "FX-myRule"
+slug: Invest-myRule
 mainPhoto: ""
-posted: "2023-10-17"
-updated: "2023-10-17"
-title: "FXのデイトレードをしたいので自分ルールと下調べと目標"
+posted: 2023-10-17
+updated: 2024-05-23
+title: FXと株式投資をしたいので自分ルールと下調べと目標
 tags:
-  - "FX"
+  - FX
+  - 投資
 extract: ""
 ---
 # 取引のルール
@@ -47,3 +48,12 @@ extract: ""
 
 # ツール
 - MT4＋TwinCloud
+
+# チャート
+## ローソク足のパターン
+覚えていないので覚えよう
+
+# 読んだ記事
+
+- [FXとは？初心者向けにゼロからわかるFXの基礎知識](https://www.oanda.jp/lab-education/beginners/aboutfx/fx_trading/)  
+  この中の内容は基本的に頭に入っていそう。チャートパターンとかその辺りは覚えておきたい。
