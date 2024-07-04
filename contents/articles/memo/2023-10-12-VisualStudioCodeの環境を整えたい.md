@@ -14,6 +14,7 @@ extract: "複数のパソコンで環境を同期して使っているので、�
 
 [Visual Studio Codeの設定「虎の巻」：IDE編](https://atmarkit.itmedia.co.jp/ait/articles/1708/23/news026.html) を参考にVisual Studio Code（以下VS Code）で環境変数などを設定するためのメモ書き。
 
+
 # 設定ファイルについて
 - ユーザー設定とワークスペース設定のふたつが基本的な設定ファイル
 - ユーザー設定について
@@ -40,3 +41,4 @@ extract: "複数のパソコンで環境を同期して使っているので、�
 
 # そのほか参考
 - [使える変数](https://code.visualstudio.com/docs/editor/variables-reference)
+- [VSCodeで生産性を上げる](https://zenn.dev/ultrasupara/articles/174429511504c7)
