@@ -9,6 +9,11 @@ tags:
   - 投資
 extract: ""
 ---
+# 困っていること
+
+- 動作が重たい
+- 注文が通らないことが多い
+
 # Macでも使える
 公式サイトからダウンロードしよう。  
 [MetaTrader4](https://www.metatrader4.com/ja/download)
