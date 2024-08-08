@@ -39,3 +39,10 @@ extract: ""
 
 - [いつも表示するチャートをテンプレートにしてデフォルトにしたい](https://mt4template.jugem.jp/)  
   チャート作る→定型として保存する→名前を「default.tpl 」にする
+- サブウィンドウがドッキングしないときは下記のコンフィグファイルを削除する  
+  `/Users/ユーザー名/Library/Application Support/net.metaquotes.wine.metatrader4/drive_c/Program Files (x86)/MetaTrader 4/config/terminal.ini`
+
+## 重たいMT4への対策
+
+- ツール→オプション→チャートからヒストリー内の最大バー数・チャートの最大バー数を2000くらいにする
+- ニュースをオフにする
