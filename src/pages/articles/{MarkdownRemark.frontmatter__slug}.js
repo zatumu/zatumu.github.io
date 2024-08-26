@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 
 // import MainImage from "../assets/test.svg";
 // import MainImage from `../assets/${frontmatter.slug}.svg`;
-import MainImage from "../../../contents/images/sprite.svg";
+// import MainImage from "../../../contents/images/sprite.svg";
 import SEO from "../../components/SEO";
 import * as styles from "./post.module.css";
 
@@ -40,7 +40,7 @@ export default function Template({
           </aside>
 
           {/* 以下のメインイメージはコンポーネント化しよう */}
-          <figure className={styles.mainImage}>
+          {/* <figure className={styles.mainImage}>
             {frontmatter.illust ? (
               <svg className={styles.mainImageSvg}>
                 <use
@@ -58,7 +58,7 @@ export default function Template({
             <figcaption className={styles.mainImageCaption}>
               {frontmatter.extract}
             </figcaption>
-          </figure>
+          </figure> */}
           
         </header>
 
