@@ -20,3 +20,6 @@ SteamDeckとSwitchを一つのコントローラーで操作するために買�
   - SteamDeckの場合はジャイロが認識されない（XBOXコントローラーなので）
     - [レシーバーのOSによってはできるかも？](https://www.reddit.com/r/SteamDeck/comments/10a9l20/comment/jbq3l0m/)
       - [アップデートはこれだけど](https://support.8bitdo.com/firmware-updater.html)、現状できていないのでBlueToothで接続している
+
+# 困ったこと
+レシーバーとコントローラーが接続されなくなった。何らかの対処がかなわないか。

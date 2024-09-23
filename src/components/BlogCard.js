@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 import * as styles from "./BlogCard.module.css";
-import MainImage from "../../contents/images/sprite.svg";
+// import MainImage from "../../contents/images/sprite.svg";
 
 
 
@@ -13,7 +13,7 @@ const BlogCard = (props) => {
       <Link href={`/articles/` + props.slug}>
         <figure>
           <svg>
-            <use xlinkHref={MainImage + "#" + props.slug} />
+            {/* <use xlinkHref={MainImage + "#" + props.slug} /> */}
           </svg>
         </figure>
         {props.title}
