@@ -1,13 +1,13 @@
 ---
-slug: "Applewatch"
+slug: Applewatch
 mainPhoto: ""
-posted: "2022-07-13"
-updated: "2022-07-13"
-title: "使っているAppleWatchSEについて"
-tags: 
-- ガジェット
-- 覚書
-extract: "使っているAppleWatchの忘れがちなことをメモしておく"
+posted: 2022-07-13
+updated: 2024-11-27
+title: 使っているAppleWatchSEについて
+tags:
+  - ガジェット
+  - 覚書
+extract: 使っているAppleWatchの忘れがちなことをメモしておく
 ---
 # サイズ
 - 40mm
@@ -15,3 +15,5 @@ extract: "使っているAppleWatchの忘れがちなことをメモしておく
 # そのほか
 一年半くらいでシリコンのソロループがちぎれた。
 今度は安い、サードパーティ製のブレイデッドソロループ風のものを買ってみたけどそれなりに満足。
+***
+2024/10にブレイデッドソロループ風を買い直す。案外長持ちしないのかも。2,000円くらい。
