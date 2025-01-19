@@ -1,27 +1,51 @@
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import "../styles/style.css";
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
+ */
 
-const Layout = (props) => {
-  const { location } = props;
-  let isHome;
-  const rootPath = `${__PATH_PREFIX__}/`;
-  if (location.pathname === rootPath) {
-    isHome = true;
-  } else {
-    isHome = false;
-  }
+import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+import Header from "./header"
+// import "./layout.css"
+
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
   return (
-    <div className={( "layout--container" ,isHome ? "isHome" : "notHome")}>
-      <div className="layout">
-      <Header />
-      <main className={"layout--inner"}>{props.children}</main>
-      <Footer />
+    <>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: `var(--size-content)`,
+          padding: `var(--size-gutter)`,
+        }}
+      >
+        <main>{children}</main>
+        <footer
+          style={{
+            marginTop: `var(--space-5)`,
+            fontSize: `var(--font-sm)`,
+          }}
+        >
+          © {new Date().getFullYear()} &middot; Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        </footer>
       </div>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default Layout;
+export default Layout
